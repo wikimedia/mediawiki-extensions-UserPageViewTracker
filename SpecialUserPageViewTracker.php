@@ -43,7 +43,7 @@ class SpecialUserPageViewTracker extends SpecialPage {
 	function execute( $parser = null ) {
 		global $wgRequest, $wgOut, $wgUser;
 
-		$wgOut->setPageTitle( 'User page tracker' );
+		$wgOut->setPageTitle( 'User page view tracker' );
 
 		list( $limit, $offset ) = wfCheckLimits();
 
@@ -56,7 +56,7 @@ class SpecialUserPageViewTracker extends SpecialPage {
 		if ( $body ) {
 			$html .= $pager->getNavigationBar();
 			$html .= '<table class="wikitable" width="100%" cellspacing="0" cellpadding="0">';
-			$html .= '<tr><th>Username</th><th>Page</th><th>Hits</th><th>Last</th></tr>';
+			$html .= '<tr><th>Username</th><th>Page</th><th>Views</th><th>Last</th></tr>';
 			$html .= $body;
 			$html .= '</table>';
 			$html .= $pager->getNavigationBar();
