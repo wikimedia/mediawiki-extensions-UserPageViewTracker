@@ -56,7 +56,7 @@ class SpecialUserPageViewTracker extends SpecialPage {
 		if ( $body ) {
 			$html .= $pager->getNavigationBar();
 			$html .= '<table class="wikitable" width="100%" cellspacing="0" cellpadding="0">';
-			$html .= '<tr><th>User Name</th><th>Real Name</th><th>Page</th><th>Hits</th><th>Last</th></tr>';
+			$html .= '<tr><th>Username</th><th>Page</th><th>Hits</th><th>Last</th></tr>';
 			$html .= $body;
 			$html .= '</table>';
 			$html .= $pager->getNavigationBar();
@@ -85,6 +85,7 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 	}
 
 	function getQueryInfo() {
+		global $wgDBprefix;
 		list( $userpagehits ) = wfGetDB( DB_SLAVE )->tableNamesN( 'user_page_hits' );
 		$conds = array();
 		if ( $this->filterUsers ) {
@@ -98,15 +99,14 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 			$conds[] = $excludeUsers;
 		}
 		$table = "(select @rownum:=@rownum+1 as rownum,";
-		$table .= "user_name, user_real_name, page_namespace, page_title,hits, last ";
+		$table .= "user_name, page_namespace, page_title,hits, last ";
 		$table .= "from (select @rownum:=0) r, ";
-		$table .= "(select user_name, user_real_name, page_namespace, page_title,hits,";
-		$table .= "last from user_page_hits) p) results";
+		$table .= "(select user_name, page_namespace, page_title,hits,";
+		$table .= "last from " . $wgDBprefix . "user_page_hits) p) results";
 		return array(
 			'tables' => " $table ",
 			'fields' => array( 'rownum',
 			'user_name',
-			'user_real_name',
 			'page_namespace',
 			'page_title',
 			'hits',
@@ -128,11 +128,6 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 
 		$res = '<tr>';
 		$res .= '<td>' . $name . '</td><td>';
-		if ($row->user_real_name) {
-			$res .= $row->user_real_name . '</td><td>';
-		} else {
-			$res .= '&nbsp;</td><td>';
-		}
 		$res .= "$page</td>";
 		$res .= '<td style="text-align:right">' . $row->hits . '</td>';
 		$res .= '<td style="text-align:center">' . $row->last . '</td>';
