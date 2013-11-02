@@ -8,18 +8,18 @@
 
 $messages = array();
 
-/** Message documentation (Message documentation)
- * @author Luis Felipe Schenone
- */
-$messages['qqq'] = array(
-	'userpageviewtracker-desc' => '{{desc|name=UserPageViewTracker|url=http://www.mediawiki.org/wiki/Extension:UserPageViewTracker}}',
-);
-
 /** English
  * @author Luis Felipe Schenone
  */
 $messages['en'] = array(
-	'userpageviewtracker-desc' => 'Tracks the page views per page per user and displays it in [[Special:UserPageViewTracker]].',
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Tracks the page views per page per user]] and displays it',
+);
+
+/** Message documentation (Message documentation)
+ * @author Luis Felipe Schenone
+ */
+$messages['qqq'] = array(
+	'userpageviewtracker-desc' => '{{desc|name=UserPageViewTracker|url=https://www.mediawiki.org/wiki/Extension:UserPageViewTracker}}',
 );
 
 /** Spanish (español)
