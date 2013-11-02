@@ -22,6 +22,13 @@ $messages['qqq'] = array(
 	'userpageviewtracker-desc' => '{{desc|name=UserPageViewTracker|url=https://www.mediawiki.org/wiki/Extension:UserPageViewTracker}}',
 );
 
+/** German (Deutsch)
+ * @author Metalhead64
+ */
+$messages['de'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Verfolgt die Seitenbetrachtungen einer Benutzerseite]] und zeigt sie an',
+);
+
 /** Spanish (español)
  * @author Luis Felipe Schenone
  */
