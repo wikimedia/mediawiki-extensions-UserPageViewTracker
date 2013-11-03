@@ -13,3 +13,8 @@ $specialPageAliases = array();
 $specialPageAliases['en'] = array(
 	'UserPageViewTracker' => array( 'UserPageViewTracker' ),
 );
+
+/** German (Deutsch) */
+$specialPageAliases['de'] = array(
+	'UserPageViewTracker' => array( 'Seitenbetrachtungsverfolgung' ),
+);

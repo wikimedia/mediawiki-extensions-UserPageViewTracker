@@ -26,7 +26,7 @@ $messages['qqq'] = array(
  * @author Metalhead64
  */
 $messages['de'] = array(
-	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Verfolgt die Seitenbetrachtungen einer Benutzerseite]] und zeigt sie an',
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Verfolgt die Seitenbetrachtungen pro Seite und Benutzer]] und zeigt sie an',
 );
 
 /** Spanish (español)
@@ -34,4 +34,32 @@ $messages['de'] = array(
  */
 $messages['es'] = array(
 	'userpageviewtracker-desc' => 'Cuenta el número de visitas a cada página por cada usuario y lo muestra en [[Special:UserPageViewTracker]].',
+);
+
+/** Japanese (日本語)
+ * @author Shirayuki
+ */
+$messages['ja'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|ページごと・利用者ごとのページ ビューを追跡]]し、それを表示する',
+);
+
+/** Macedonian (македонски)
+ * @author Bjankuloski06
+ */
+$messages['mk'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Следи посети на страници по корисници]] и ги прикажува',
+);
+
+/** Russian (русский)
+ * @author Okras
+ */
+$messages['ru'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Отслеживает]] и отображает количество просмотров страниц в разрезе страниц и пользователей',
+);
+
+/** Ukrainian (українська)
+ * @author Andriykopanytsia
+ */
+$messages['uk'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Відстежує число переглядів на сторінці кожного користувача]] та відображає його',
 );
