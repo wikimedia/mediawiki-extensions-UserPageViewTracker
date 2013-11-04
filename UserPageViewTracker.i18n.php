@@ -36,11 +36,25 @@ $messages['es'] = array(
 	'userpageviewtracker-desc' => 'Cuenta el número de visitas a cada página por cada usuario y lo muestra en [[Special:UserPageViewTracker]].',
 );
 
+/** French (français)
+ * @author Gomoko
+ */
+$messages['fr'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Trace les visualisations de page par page par utilisateur]] et les affiche',
+);
+
 /** Japanese (日本語)
  * @author Shirayuki
  */
 $messages['ja'] = array(
 	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|ページごと・利用者ごとのページ ビューを追跡]]し、それを表示する',
+);
+
+/** Latin (Latina)
+ * @author Autokrator
+ */
+$messages['la'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Numerum visitatorum per paginam enumerat]] atque demonstrat',
 );
 
 /** Macedonian (македонски)
@@ -55,6 +69,13 @@ $messages['mk'] = array(
  */
 $messages['ru'] = array(
 	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Отслеживает]] и отображает количество просмотров страниц в разрезе страниц и пользователей',
+);
+
+/** Swedish (svenska)
+ * @author WikiPhoenix
+ */
+$messages['sv'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Spårar sidvisningar per sida per användare]] och visar den',
 );
 
 /** Ukrainian (українська)
