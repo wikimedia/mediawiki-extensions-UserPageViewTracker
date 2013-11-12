@@ -50,6 +50,13 @@ $messages['fr'] = array(
 	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Trace les visualisations de page par page par utilisateur]] et les affiche',
 );
 
+/** Galician (galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Fai un seguimento das visitas por páxina e por usuario]] e móstraas',
+);
+
 /** Italian (italiano)
  * @author Beta16
  */
