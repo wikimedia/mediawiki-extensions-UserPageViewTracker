@@ -71,12 +71,26 @@ $messages['ja'] = array(
 	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|ページごと・利用者ごとのページ ビューを追跡]]し、それを表示する',
 );
 
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|문서 마다 사용자 마다 조회한 문서를 추적]]하고 보여줍니다',
+);
+
 /** Latin (Latina)
  * @author Autokrator
  * @author UV
  */
 $messages['la'] = array(
 	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Numerum visitationum per usorem et per paginam enumerat]] atque demonstrat',
+);
+
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'userpageviewtracker-desc' => "[[Special:UserPageViewTracker|Enregistréiert d'Säiten déi e Benotzer kuckt]] a weist se pro Benotzer a pro Säit",
 );
 
 /** Macedonian (македонски)

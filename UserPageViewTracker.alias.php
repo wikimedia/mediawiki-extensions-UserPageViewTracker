@@ -18,3 +18,8 @@ $specialPageAliases['en'] = array(
 $specialPageAliases['de'] = array(
 	'UserPageViewTracker' => array( 'Seitenbetrachtungsverfolgung' ),
 );
+
+/** Korean (한국어) */
+$specialPageAliases['ko'] = array(
+	'UserPageViewTracker' => array( '사용자문서조회수추적' ),
+);
