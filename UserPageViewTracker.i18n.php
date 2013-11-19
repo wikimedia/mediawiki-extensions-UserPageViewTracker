@@ -22,6 +22,13 @@ $messages['qqq'] = array(
 	'userpageviewtracker-desc' => '{{desc|name=UserPageViewTracker|url=https://www.mediawiki.org/wiki/Extension:UserPageViewTracker}}',
 );
 
+/** Asturian (asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Fai un siguimientu de les visites por páxina y por usuariu]] y amuésalu',
+);
+
 /** German (Deutsch)
  * @author Metalhead64
  */
