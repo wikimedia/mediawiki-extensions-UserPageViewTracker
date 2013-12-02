@@ -23,3 +23,8 @@ $specialPageAliases['de'] = array(
 $specialPageAliases['ko'] = array(
 	'UserPageViewTracker' => array( '사용자문서조회수추적' ),
 );
+
+/** Macedonian (македонски) */
+$specialPageAliases['mk'] = array(
+	'UserPageViewTracker' => array( 'СледачПосетиКорисничкиСтраници' ),
+);
