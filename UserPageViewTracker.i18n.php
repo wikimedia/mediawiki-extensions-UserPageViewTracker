@@ -107,6 +107,13 @@ $messages['mk'] = array(
 	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Следи посети на страници по корисници]] и ги прикажува',
 );
 
+/** Dutch (Nederlands)
+ * @author Siebrand
+ */
+$messages['nl'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Volgt de paginaweergaves per pagina per gebruiker]] en geeft deze weer',
+);
+
 /** Russian (русский)
  * @author Okras
  */
