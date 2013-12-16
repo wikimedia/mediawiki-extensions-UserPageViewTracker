@@ -14,6 +14,11 @@ $specialPageAliases['en'] = array(
 	'UserPageViewTracker' => array( 'UserPageViewTracker' ),
 );
 
+/** Arabic (العربية) */
+$specialPageAliases['ar'] = array(
+	'UserPageViewTracker' => array( 'متتبع_رؤية_صفحة_المستخدم' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'UserPageViewTracker' => array( 'Seitenbetrachtungsverfolgung' ),
