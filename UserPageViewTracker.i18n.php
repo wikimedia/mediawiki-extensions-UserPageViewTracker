@@ -36,6 +36,13 @@ $messages['de'] = array(
 	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Verfolgt die Seitenbetrachtungen pro Seite und Benutzer]] und zeigt sie an',
 );
 
+/** Lower Sorbian (dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Slědujo wobglědowanja bokow na bok na wužywarja]] a zwobraznjujo je',
+);
+
 /** Spanish (español)
  * @author Luis Felipe Schenone
  */
@@ -62,6 +69,13 @@ $messages['fr'] = array(
  */
 $messages['gl'] = array(
 	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Fai un seguimento das visitas por páxina e por usuario]] e móstraas',
+);
+
+/** Upper Sorbian (hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Slěduje wobhladowanja stronow na stronu na wužiwarja]] a zwobraznja je',
 );
 
 /** Italian (italiano)
