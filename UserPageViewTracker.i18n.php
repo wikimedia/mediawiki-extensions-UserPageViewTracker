@@ -148,3 +148,10 @@ $messages['sv'] = array(
 $messages['uk'] = array(
 	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Відстежує число переглядів на сторінці кожного користувача]] та відображає його',
 );
+
+/** Simplified Chinese (中文（简体）‎)
+ * @author Yfdyh000
+ */
+$messages['zh-hans'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|跟踪每页每用户的页面浏览量]]并显示',
+);
