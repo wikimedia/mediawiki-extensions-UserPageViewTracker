@@ -99,6 +99,13 @@ $messages['ko'] = array(
 	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|문서 마다 사용자 마다 조회한 문서를 추적]]하고 보여줍니다',
 );
 
+/** Colognian (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'userpageviewtracker-desc' => 'Häld de [[Special:UserPageViewTracker|Siggeoproofe pä Metmaacher]] faß, un zeisch se aan.',
+);
+
 /** Latin (Latina)
  * @author Autokrator
  * @author UV
