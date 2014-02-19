@@ -19,6 +19,11 @@ $specialPageAliases['ar'] = array(
 	'UserPageViewTracker' => array( 'متتبع_رؤية_صفحة_المستخدم' ),
 );
 
+/** Egyptian Spoken Arabic (مصرى) */
+$specialPageAliases['arz'] = array(
+	'UserPageViewTracker' => array( 'متتبع-رؤيه_صفحه_المستخدم' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'UserPageViewTracker' => array( 'Seitenbetrachtungsverfolgung' ),
@@ -32,4 +37,9 @@ $specialPageAliases['ko'] = array(
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'UserPageViewTracker' => array( 'СледачПосетиКорисничкиСтраници' ),
+);
+
+/** Simplified Chinese (中文（简体）‎) */
+$specialPageAliases['zh-hans'] = array(
+	'UserPageViewTracker' => array( '用户页查阅追踪器' ),
 );
