@@ -135,6 +135,13 @@ $messages['nl'] = array(
 	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Volgt de paginaweergaves per pagina per gebruiker]] en geeft deze weer',
 );
 
+/** Occitan (occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'userpageviewtracker-desc' => '[[Special:UserPageViewTracker|Traça las visualizacions de pagina per pagina per utilizaire]] e las aficha',
+);
+
 /** Russian (русский)
  * @author Okras
  */
