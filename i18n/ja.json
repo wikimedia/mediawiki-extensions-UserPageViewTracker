@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Shirayuki"
-        ]
-    },
-    "userpageviewtracker-desc": "[[Special:UserPageViewTracker|ページごと・利用者ごとのページ ビューを追跡]]し、それを表示する"
+	"@metadata": {
+		"authors": [
+			"Shirayuki"
+		]
+	},
+	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|ページごと・利用者ごとのページ ビューを追跡]]し、それを表示する"
 }

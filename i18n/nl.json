@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Siebrand"
-        ]
-    },
-    "userpageviewtracker-desc": "[[Special:UserPageViewTracker|Volgt de paginaweergaves per pagina per gebruiker]] en geeft deze weer"
+	"@metadata": {
+		"authors": [
+			"Siebrand"
+		]
+	},
+	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|Volgt de paginaweergaves per pagina per gebruiker]] en geeft deze weer"
 }

@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Luis Felipe Schenone"
-        ]
-    },
-    "userpageviewtracker-desc": "{{desc|name=UserPageViewTracker|url=https://www.mediawiki.org/wiki/Extension:UserPageViewTracker}}"
+	"@metadata": {
+		"authors": [
+			"Luis Felipe Schenone"
+		]
+	},
+	"userpageviewtracker-desc": "{{desc|name=UserPageViewTracker|url=https://www.mediawiki.org/wiki/Extension:UserPageViewTracker}}"
 }

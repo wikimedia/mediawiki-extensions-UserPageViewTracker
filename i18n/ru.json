@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Okras"
-        ]
-    },
-    "userpageviewtracker-desc": "[[Special:UserPageViewTracker|Отслеживает]] и отображает количество просмотров страниц в разрезе страниц и пользователей"
+	"@metadata": {
+		"authors": [
+			"Okras"
+		]
+	},
+	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|Отслеживает]] и отображает количество просмотров страниц в разрезе страниц и пользователей"
 }

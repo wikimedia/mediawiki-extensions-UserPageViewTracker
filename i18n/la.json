@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Autokrator",
-            "UV"
-        ]
-    },
-    "userpageviewtracker-desc": "[[Special:UserPageViewTracker|Numerum visitationum per usorem et per paginam enumerat]] atque demonstrat"
+	"@metadata": {
+		"authors": [
+			"Autokrator",
+			"UV"
+		]
+	},
+	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|Numerum visitationum per usorem et per paginam enumerat]] atque demonstrat"
 }
