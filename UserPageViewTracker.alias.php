@@ -43,3 +43,8 @@ $specialPageAliases['mk'] = array(
 $specialPageAliases['zh-hans'] = array(
 	'UserPageViewTracker' => array( '用户页查阅追踪器' ),
 );
+
+/** Traditional Chinese (中文（繁體）‎) */
+$specialPageAliases['zh-hant'] = array(
+	'UserPageViewTracker' => array( '使用者頁面檢視追蹤' ),
+);
