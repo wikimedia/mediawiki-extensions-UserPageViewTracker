@@ -4,5 +4,6 @@
 			"Metalhead64"
 		]
 	},
-	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|Verfolgt die Seitenbetrachtungen pro Seite und Benutzer]] und zeigt sie an"
+	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|Verfolgt die Seitenbetrachtungen pro Seite und Benutzer]] und zeigt sie an",
+	"userpageviewtracker": "Seitenbetrachtungsverfolgung"
 }
