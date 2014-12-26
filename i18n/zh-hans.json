@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Yfdyh000"
+			"Yfdyh000",
+			"Liuxinyu970226"
 		]
 	},
-	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|跟踪每页每用户的页面浏览量]]并显示"
+	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|跟踪每页每用户的页面浏览量]]并显示",
+	"userpageviewtracker": "用户页查看跟踪器"
 }
