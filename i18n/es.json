@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Luis Felipe Schenone"
+			"Luis Felipe Schenone",
+			"Kroji"
 		]
 	},
-	"userpageviewtracker-desc": "Cuenta el número de visitas a cada página por cada usuario y lo muestra en [[Special:UserPageViewTracker]]."
+	"userpageviewtracker-desc": "Cuenta el número de visitas a cada página por cada usuario y lo muestra en [[Special:UserPageViewTracker]].",
+	"userpageviewtracker": "Contador de visitas por usuario y página"
 }
