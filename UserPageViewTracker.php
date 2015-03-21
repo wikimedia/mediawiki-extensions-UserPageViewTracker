@@ -14,6 +14,7 @@ $wgExtensionMessagesFiles['UserPageViewTracker'] = __DIR__ . '/UserPageViewTrack
 $wgExtensionMessagesFiles['UserPageViewTrackerAlias'] = __DIR__ . '/UserPageViewTracker.alias.php';
 
 $wgAutoloadClasses['SpecialUserPageViewTracker'] = __DIR__ . '/SpecialUserPageViewTracker.php';
+$wgAutoloadClasses['UserPageViewTrackerPager'] = __DIR__ . '/SpecialUserPageViewTracker.php';
 
 $wgSpecialPages['UserPageViewTracker'] = 'SpecialUserPageViewTracker';
 
