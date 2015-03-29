@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gomoko"
+			"Gomoko",
+			"Abaddon1337"
 		]
 	},
-	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|Trace les visualisations de page par page par utilisateur]] et les affiche"
+	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|Trace les visualisations de pages par page par utilisateur]] et les affiche",
+	"userpageviewtracker": "Traqueur de visualisation de pages utilisateurs"
 }
