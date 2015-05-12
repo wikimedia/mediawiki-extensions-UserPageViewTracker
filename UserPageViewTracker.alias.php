@@ -19,7 +19,7 @@ $specialPageAliases['ar'] = array(
 	'UserPageViewTracker' => array( 'متتبع_رؤية_صفحة_المستخدم' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = array(
 	'UserPageViewTracker' => array( 'متتبع-رؤيه_صفحه_المستخدم' ),
 );
