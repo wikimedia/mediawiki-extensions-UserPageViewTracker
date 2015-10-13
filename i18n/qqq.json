@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Luis Felipe Schenone"
+			"Luis Felipe Schenone",
+			"Umherirrender"
 		]
 	},
-	"userpageviewtracker-desc": "{{desc|name=UserPageViewTracker|url=https://www.mediawiki.org/wiki/Extension:UserPageViewTracker}}"
+	"userpageviewtracker-desc": "{{desc|name=UserPageViewTracker|url=https://www.mediawiki.org/wiki/Extension:UserPageViewTracker}}",
+	"userpageviewtracker": "Used as title on [[Special:UserPageViewTracker]]"
 }
