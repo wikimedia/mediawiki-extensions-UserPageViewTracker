@@ -45,7 +45,7 @@ class SpecialUserPageViewTracker extends SpecialPage {
 
 		$wgOut->setPageTitle( 'User page view tracker' );
 
-		list( $limit, $offset ) = wfCheckLimits();
+		list( $limit, $offset ) = $this->getRequest()->getLimitOffset();
 
 		$userTarget = isset( $parser ) ? $parser : $wgRequest->getVal( 'username' );
 
