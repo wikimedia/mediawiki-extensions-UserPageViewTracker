@@ -117,7 +117,7 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 
 	function formatRow( $row ) {
 		$userPage = Title::makeTitle( NS_USER, $row->user_name );
-		$name = $this->getSkin()->makeLinkObj( $userPage, htmlspecialchars( $userPage->getText() ) );
+		$name = Linker::link( $userPage, htmlspecialchars( $userPage->getText() ) );
 		$pageTitle = Title::makeTitle( $row->page_namespace, $row->page_title );
 		if ( $row->page_namespace > 0 ) {
 			$pageFullName = $pageTitle->getNsText() . ':' . htmlspecialchars( $pageTitle->getText() );
