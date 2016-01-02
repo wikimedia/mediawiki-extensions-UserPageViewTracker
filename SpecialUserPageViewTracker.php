@@ -124,7 +124,7 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 		} else {
 			$pageFullName = htmlspecialchars( $pageTitle->getText() );
 		}
-		$page = $this->getSkin()->makeLinkObj( $pageTitle, $pageFullName );
+		$page = Linker::link( $pageTitle, $pageFullName );
 
 		$res = '<tr>';
 		$res .= '<td>' . $name . '</td><td>';
