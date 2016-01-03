@@ -61,7 +61,7 @@ class SpecialUserPageViewTracker extends SpecialPage {
 			$html .= '</table>';
 			$html .= $pager->getNavigationBar();
 		} else {
-			$html .= '<p>' . wfMsgHTML('listusers-noresult') . '</p>';
+			$html .= '<p>' . $this->msg('listusers-noresult')->escaped() . '</p>';
 		}
 		$wgOut->addHTML( $html );
 	}
