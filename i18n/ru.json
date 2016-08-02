@@ -4,5 +4,6 @@
 			"Okras"
 		]
 	},
-	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|Отслеживает]] и отображает количество просмотров страниц в разрезе страниц и пользователей"
+	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|Отслеживает]] и отображает количество просмотров страниц в разрезе страниц и пользователей",
+	"userpageviewtracker": "Отслеживание количества просмотров страниц участников"
 }
