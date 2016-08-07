@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"아라"
+			"아라",
+			"Revi"
 		]
 	},
-	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|문서 마다 사용자 마다 조회한 문서를 추적]]하고 보여줍니다"
+	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|문서 마다 사용자 마다 조회한 문서를 추적]]하고 보여줍니다",
+	"userpageviewtracker": "사용자 문서 열람 추적기"
 }
