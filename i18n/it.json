@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16"
+			"Beta16",
+			"Selven"
 		]
 	},
-	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|Traccia le visualizzazioni delle pagine per utente]] e le mostra"
+	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|Traccia le visualizzazioni delle pagine per utente]] e le mostra",
+	"userpageviewtracker": "Tracciatore di visualizzazioni delle pagine utente"
 }
