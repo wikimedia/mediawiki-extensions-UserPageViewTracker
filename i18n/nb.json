@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|Sporer sidevisninger per side per bruker]] og viser dem",
+	"userpageviewtracker": "Sidevisningssporing"
+}
