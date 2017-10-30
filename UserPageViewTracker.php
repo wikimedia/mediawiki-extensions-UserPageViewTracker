@@ -10,7 +10,6 @@ $wgExtensionCredits['specialpage'][] = array(
 );
 
 $wgMessagesDirs['UserPageViewTracker'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['UserPageViewTracker'] = __DIR__ . '/UserPageViewTracker.i18n.php';
 $wgExtensionMessagesFiles['UserPageViewTrackerAlias'] = __DIR__ . '/UserPageViewTracker.alias.php';
 
 $wgAutoloadClasses['SpecialUserPageViewTracker'] = __DIR__ . '/SpecialUserPageViewTracker.php';
