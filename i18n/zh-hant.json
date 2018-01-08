@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cwlin0416"
+			"Cwlin0416",
+			"Kly"
 		]
 	},
-	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|追蹤每一頁面檢視的每一位使用者]] 並且顯示報表"
+	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|追蹤每一頁面檢視的每一位使用者]] 並且顯示報表",
+	"userpageviewtracker": "使用者頁面檢視追蹤"
 }
