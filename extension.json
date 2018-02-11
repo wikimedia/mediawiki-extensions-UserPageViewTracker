@@ -1,0 +1,32 @@
+{
+	"name": "UserPageViewTracker",
+	"version": "0.5",
+	"author": [
+		"[https://www.mediawiki.org/wiki/User:Kimon Kimon Andreou]",
+		"[https://www.mediawiki.org/wiki/User:Sophivorus Felipe Schenone]"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:UserPageViewTracker",
+	"license-name": "GPL-3.0",
+	"descriptionmsg": "userpageviewtracker-desc",
+	"type": "specialpage",
+	"SpecialPages": {
+		"UserPageViewTracker": "SpecialUserPageViewTracker"
+	},
+	"MessagesDirs": {
+		"UserPageViewTracker": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"UserPageViewTrackerAlias": "UserPageViewTracker.alias.php"
+	},
+	"AutoloadClasses": {
+		"SpecialUserPageViewTracker": "SpecialUserPageViewTracker.php",
+		"UserPageViewTrackerPager": "SpecialUserPageViewTracker.php"
+	},
+	"Hooks": {
+		"ParserAfterTidy": "SpecialUserPageViewTracker::updateTable",
+		"LoadExtensionSchemaUpdates": "SpecialUserPageViewTracker::updateDatabase"
+	},
+	"manifest_version": 2
+}
