@@ -9,6 +9,9 @@
 	"license-name": "GPL-3.0",
 	"descriptionmsg": "userpageviewtracker-desc",
 	"type": "specialpage",
+	"requires": {
+		"MediaWiki": ">= 1.29.0"
+	},
 	"SpecialPages": {
 		"UserPageViewTracker": "SpecialUserPageViewTracker"
 	},
