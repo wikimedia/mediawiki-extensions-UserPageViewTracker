@@ -6,7 +6,7 @@
 		"[https://www.mediawiki.org/wiki/User:Sophivorus Felipe Schenone]"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:UserPageViewTracker",
-	"license-name": "GPL-3.0",
+	"license-name": "GPL-3.0-only",
 	"descriptionmsg": "userpageviewtracker-desc",
 	"type": "specialpage",
 	"requires": {
