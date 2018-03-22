@@ -86,7 +86,7 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 
 	function getQueryInfo() {
 		global $wgDBprefix;
-		list( $userpagehits ) = wfGetDB( DB_SLAVE )->tableNamesN( 'user_page_hits' );
+		list( $userpagehits ) = wfGetDB( DB_REPLICA )->tableNamesN( 'user_page_hits' );
 		$conds = array();
 		if ( $this->filterUsers ) {
 			$includeUsers = "user_name in ( '";
