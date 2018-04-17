@@ -2,12 +2,21 @@
 
 class SpecialUserPageViewTracker extends SpecialPage {
 
+	/** @var boolean $already_counted */
+	public static $already_counted = false;
+	
 	function __construct() {
 		parent::__construct( 'UserPageViewTracker' );
 	}
 
 	public static function updateTable( &$parser, &$text ) {
 		global $wgUser, $wgOut;
+		
+		// This ensures that only one view is counted per page view in case this is called multiple times.
+		if(self::$already_counted)
+			return;
+			
+		self::$already_counted = true;
 
 		$wgOut->enableClientCache( false );
 		$wgOut->addMeta( 'http:Pragma', 'no-cache' );
