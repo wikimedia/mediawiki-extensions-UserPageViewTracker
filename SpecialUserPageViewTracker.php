@@ -152,14 +152,33 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 	}
 
 	function getForm() {
-		$out = '<form name="filteruser" id="filteruser" method="post">';
-		$out .='Usernames: <input type="text" name="filterusers" value="' . $this->filterUsers . '">';
-		$out .='<input type="submit" value="Filter">';
-		$out .='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-		$out .='Usernames: <input type="text" name="ignoreusers" value="' . $this->ignoreUsers . '">';
-		$out .='<input type="submit" value="Exclude">';
-		$out .='</form><br /><hr /><br />';
-		return $out;
+		$formDescriptor = [
+			'filterusers' => [
+				'type' => 'textwithbutton',
+				'name' => 'filterusers',
+				'label' => 'Usernames:',
+				'default' => $this->filterUsers,
+				'buttondefault' => 'Filter',
+			],
+			'ignoreusers' => [
+				'type' => 'textwithbutton',
+				'name' => 'ignoreusers',
+				'label' => 'Usernames:',
+				'default' => $this->ignoreUsers,
+				'buttondefault' => 'Exclude',
+			]
+		];
+
+		$context = new DerivativeContext( $this->getContext() );
+		$htmlForm = HTMLForm::factory( 'ooui', $formDescriptor, $context );
+		$htmlForm
+			->setMethod( 'post' )
+			->setId( 'filteruser' )
+			->setName( 'filteruser' )
+			->suppressDefaultSubmit()
+			->setWrapperLegend( Null )
+			->prepareForm()
+			->displayForm( false );
 	}
 
 	/**
