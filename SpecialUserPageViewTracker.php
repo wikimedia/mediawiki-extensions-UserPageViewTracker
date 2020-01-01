@@ -181,7 +181,6 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 		$context = new DerivativeContext( $this->getContext() );
 		$htmlForm = HTMLForm::factory( 'ooui', $formDescriptor, $context );
 		$htmlForm
-			->setMethod( 'post' )
 			->setId( 'filteruser' )
 			->setName( 'filteruser' )
 			->suppressDefaultSubmit()
