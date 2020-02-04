@@ -49,7 +49,7 @@ class SpecialUserPageViewTracker extends SpecialPage {
 
 		$userTarget = isset( $parser ) ? $parser : $wgRequest->getVal( 'username' );
 
-		$pager = new UserPageViewTrackerPager( $wgUser );
+		$pager = new UserPageViewTrackerPager( $this->getContext(), $wgUser );
 		$form = $pager->getForm();
 		$body = $pager->getBody();
 		$html = $form;
@@ -70,8 +70,8 @@ class SpecialUserPageViewTracker extends SpecialPage {
 class UserPageViewTrackerPager extends AlphabeticPager {
 	protected $rowCount = 0;
 
-	function __construct( $username = null ) {
-		parent::__construct();
+	function __construct( IContextSource $context, $username = null ) {
+		parent::__construct( $context );
 		global $wgRequest;
 		$this->filterUsers = $wgRequest->getVal( 'filterusers' );
 		$this->filterUserList = explode("|", $this->filterUsers);
