@@ -7,13 +7,15 @@ class SpecialUserPageViewTracker extends SpecialPage {
 	}
 
 	public static function updateTable( &$parser, &$text ) {
-		global $wgUser, $wgOut;
+		global $wgOut;
 
 		$wgOut->enableClientCache( false );
 		$wgOut->addMeta( 'http:Pragma', 'no-cache' );
 
+		$user = $parser->getUser();
+
 		$dbw = wfGetDB( DB_MASTER );
-		$user_id = $wgUser->getID();
+		$user_id = $user->getID();
 		$page_id = $parser->getTitle()->getArticleID();
 		$hits = 0;
 		$last = wfTimestampNow();
@@ -41,15 +43,17 @@ class SpecialUserPageViewTracker extends SpecialPage {
 	}
 
 	function execute( $parser = null ) {
-		global $wgRequest, $wgOut, $wgUser;
+		$request = $this->getRequest();
+		$out = $this->getOutput();
+		$user = $this->getUser();
 
-		$wgOut->setPageTitle( 'User page view tracker' );
+		$out->setPageTitle( 'User page view tracker' );
 
-		list( $limit, $offset ) = $this->getRequest()->getLimitOffset();
+		list( $limit, $offset ) = $request->getLimitOffset();
 
-		$userTarget = isset( $parser ) ? $parser : $wgRequest->getVal( 'username' );
+		$userTarget = isset( $parser ) ? $parser : $request->getVal( 'username' );
 
-		$pager = new UserPageViewTrackerPager( $this->getContext(), $wgUser );
+		$pager = new UserPageViewTrackerPager( $this->getContext(), $user );
 		$form = $pager->getForm();
 		$body = $pager->getBody();
 		$html = $form;
@@ -63,7 +67,7 @@ class SpecialUserPageViewTracker extends SpecialPage {
 		} else {
 			$html .= '<p>' . $this->msg('listusers-noresult')->escaped() . '</p>';
 		}
-		$wgOut->addHTML( $html );
+		$out->addHTML( $html );
 	}
 }
 
