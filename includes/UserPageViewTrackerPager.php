@@ -7,12 +7,12 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 		parent::__construct( $context );
 		global $wgRequest;
 		$this->filterUsers = $wgRequest->getVal( 'filterusers' );
-		$this->filterUserList = explode("|", $this->filterUsers);
+		$this->filterUserList = explode( "|", $this->filterUsers );
 		$this->ignoreUsers = $wgRequest->getVal( 'ignoreusers' );
-		$this->ignoreUserList = explode("|", $this->ignoreUsers);
+		$this->ignoreUserList = explode( "|", $this->ignoreUsers );
 	}
 
-	//Implementing remaining abstract method
+	// Implementing remaining abstract method
 	function getIndexField() {
 		return "rownum";
 	}
@@ -20,7 +20,7 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 	function getQueryInfo() {
 		global $wgDBprefix;
 		list( $userpagehits ) = wfGetDB( DB_REPLICA )->tableNamesN( 'user_page_hits' );
-		$conds = array();
+		$conds = [];
 		if ( $this->filterUsers ) {
 			$includeUsers = "user_name in ( '";
 			$includeUsers .= implode( "', '", $this->filterUserList ) . "')";
@@ -36,16 +36,16 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 		$table .= "from (select @rownum:=0) r, ";
 		$table .= "(select user_name, page_namespace, page_title,hits,";
 		$table .= "last from " . $wgDBprefix . "user_page_hits) p) results";
-		return array(
+		return [
 			'tables' => " $table ",
-			'fields' => array( 'rownum',
+			'fields' => [ 'rownum',
 			'user_name',
 			'page_namespace',
 			'page_title',
 			'hits',
-			"concat(substr(last, 1, 4),'-',substr(last,5,2),'-',substr(last,7,2),' ',substr(last,9,2),':',substr(last,11,2),':',substr(last,13,2)) AS last"),
+			"concat(substr(last, 1, 4),'-',substr(last,5,2),'-',substr(last,7,2),' ',substr(last,9,2),':',substr(last,11,2),':',substr(last,13,2)) AS last" ],
 			'conds' => $conds
-		);
+		];
 	}
 
 	function formatRow( $row ) {
@@ -69,7 +69,7 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 	}
 
 	function getBody() {
-		if ( ! $this->mQueryDone ) {
+		if ( !$this->mQueryDone ) {
 			$this->doQuery();
 		}
 		$batch = new LinkBatch;
@@ -108,7 +108,7 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 			->setId( 'filteruser' )
 			->setName( 'filteruser' )
 			->suppressDefaultSubmit()
-			->setWrapperLegend( Null )
+			->setWrapperLegend( null )
 			->prepareForm()
 			->displayForm( false );
 	}
@@ -119,10 +119,12 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 	 */
 	function getDefaultQuery() {
 		$query = parent::getDefaultQuery();
-		if( $this->filterUsers != '' )
+		if ( $this->filterUsers != '' ) {
 			$query['filterusers'] = $this->filterUsers;
-		if( $this->ignoreUsers != '' )
+		}
+		if ( $this->ignoreUsers != '' ) {
 			$query['ignoreusers'] = $this->ignoreUsers;
+		}
 		return $query;
 	}
 }
