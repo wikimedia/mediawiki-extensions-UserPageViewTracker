@@ -24,8 +24,8 @@
 		"UserPageViewTrackerAlias": "UserPageViewTracker.alias.php"
 	},
 	"AutoloadClasses": {
-		"SpecialUserPageViewTracker": "SpecialUserPageViewTracker.php",
-		"UserPageViewTrackerPager": "UserPageViewTrackerPager.php"
+		"SpecialUserPageViewTracker": "includes/specials/SpecialUserPageViewTracker.php",
+		"UserPageViewTrackerPager": "includes/UserPageViewTrackerPager.php"
 	},
 	"Hooks": {
 		"ParserAfterTidy": "SpecialUserPageViewTracker::updateTable",
