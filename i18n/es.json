@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sophivorus",
-			"Kroji"
+			"Kroji",
+			"Sophivorus"
 		]
 	},
 	"userpageviewtracker-desc": "Cuenta el número de visitas a cada página por cada usuario y lo muestra en [[Special:UserPageViewTracker]].",
