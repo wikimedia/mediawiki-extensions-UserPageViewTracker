@@ -1,6 +1,8 @@
 <?php
 
 class UserPageViewTrackerPager extends AlphabeticPager {
+
+	/** @var int */
 	protected $rowCount = 0;
 
 	function __construct( IContextSource $context, $username = null ) {
@@ -12,7 +14,11 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 		$this->ignoreUserList = explode( "|", $this->ignoreUsers );
 	}
 
-	// Implementing remaining abstract method
+	/**
+	 * Implementing remaining abstract method
+	 *
+	 * @return string
+	 */
 	function getIndexField() {
 		return "rownum";
 	}
