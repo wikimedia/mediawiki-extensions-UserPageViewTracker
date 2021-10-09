@@ -41,10 +41,8 @@ class SpecialUserPageViewTracker extends SpecialPage {
 	}
 
 	public static function updateDatabase( DatabaseUpdater $updater ) {
-		global $wgDBprefix;
-		$updater->addExtensionTable( $wgDBprefix . 'user_page_views', __DIR__ . '/../../sql/UserPageViewTracker.sql' );
-		$updater->addExtensionTable( $wgDBprefix . 'user_page_hits', __DIR__ . '/../../sql/UserPageViewTracker.sql' );
-		return true;
+		$updater->addExtensionTable( 'user_page_views', __DIR__ . '/../../sql/UserPageViewTracker.sql' );
+		// View user_page_hits is in UserPageViewTracker.sql and created together with user_page_views table
 	}
 
 	function execute( $parser = null ) {

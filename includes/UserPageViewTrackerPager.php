@@ -24,8 +24,7 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 	}
 
 	function getQueryInfo() {
-		global $wgDBprefix;
-		list( $userpagehits ) = wfGetDB( DB_REPLICA )->tableNamesN( 'user_page_hits' );
+		$userpagehits = wfGetDB( DB_REPLICA )->tableName( 'user_page_hits' );
 		$conds = [];
 		if ( $this->filterUsers ) {
 			$includeUsers = "user_name in ( '";
@@ -41,7 +40,7 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 		$table .= "user_name, page_namespace, page_title,hits, last ";
 		$table .= "from (select @rownum:=0) r, ";
 		$table .= "(select user_name, page_namespace, page_title,hits,";
-		$table .= "last from " . $wgDBprefix . "user_page_hits) p) results";
+		$table .= "last from " . $userpagehits . ") p) results";
 		return [
 			'tables' => " $table ",
 			'fields' => [ 'rownum',
