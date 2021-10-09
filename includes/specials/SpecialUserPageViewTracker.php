@@ -12,7 +12,12 @@ class SpecialUserPageViewTracker extends SpecialPage {
 		$wgOut->enableClientCache( false );
 		$wgOut->addMeta( 'http:Pragma', 'no-cache' );
 
-		$user = $parser->getUser();
+		if ( method_exists( $parser, 'getUserIdentity' ) ) {
+			// MW 1.36+
+			$user = $parser->getUserIdentity();
+		} else {
+			$user = $parser->getUser();
+		}
 
 		$dbw = wfGetDB( DB_MASTER );
 		$user_id = $user->getID();
