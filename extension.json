@@ -1,9 +1,9 @@
 {
 	"name": "UserPageViewTracker",
-	"version": "0.5",
+	"version": "0.6",
 	"author": [
 		"[https://www.mediawiki.org/wiki/User:Kimon Kimon Andreou]",
-		"[https://www.mediawiki.org/wiki/User:Sophivorus Felipe Schenone]"
+		"[https://www.mediawiki.org/wiki/User:Sophivorus Sophivorus]"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:UserPageViewTracker",
 	"license-name": "GPL-3.0-only",
@@ -28,8 +28,8 @@
 		"UserPageViewTrackerPager": "includes/UserPageViewTrackerPager.php"
 	},
 	"Hooks": {
-		"ParserAfterTidy": "SpecialUserPageViewTracker::updateTable",
-		"LoadExtensionSchemaUpdates": "SpecialUserPageViewTracker::updateDatabase"
+		"BeforePageDisplay": "SpecialUserPageViewTracker::onBeforePageDisplay",
+		"LoadExtensionSchemaUpdates": "SpecialUserPageViewTracker::onLoadExtensionSchemaUpdates"
 	},
 	"manifest_version": 2
 }

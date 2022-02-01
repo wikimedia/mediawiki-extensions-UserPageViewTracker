@@ -6,41 +6,32 @@ class SpecialUserPageViewTracker extends SpecialPage {
 		parent::__construct( 'UserPageViewTracker' );
 	}
 
-	public static function updateTable( &$parser, &$text ) {
-		global $wgOut;
-
-		$wgOut->enableClientCache( false );
-		$wgOut->addMeta( 'http:Pragma', 'no-cache' );
-
-		if ( method_exists( $parser, 'getUserIdentity' ) ) {
-			// MW 1.36+
-			$user = $parser->getUserIdentity();
-		} else {
-			$user = $parser->getUser();
-		}
-
+	public static function onBeforePageDisplay( OutputPage $out, Skin $skin ) {
 		$dbw = wfGetDB( DB_MASTER );
-		$user_id = $user->getID();
-		$page_id = $parser->getTitle()->getArticleID();
-		$hits = 0;
-		$last = wfTimestampNow();
-
-		$result = $dbw->select( 'user_page_views', [ 'hits','last' ], "user_id = $user_id AND page_id = $page_id", __METHOD__ );
-		if ( $row = $result->fetchRow() ) {
-			$hits = $row['hits'];
-			$last = $row['last'];
+		if ( method_exists( $skin, 'getUserIdentity' ) ) {
+			// MW 1.36+
+			$user = $skin->getUserIdentity();
+		} else {
+			$user = $skin->getUser();
 		}
-		$dbw->upsert(
-			'user_page_views',
-			[ 'user_id' => $user_id, 'page_id' => $page_id, 'hits' => $hits + 1, 'last' => $last ],
-			[ [ 'user_id', 'page_id' ] ],
-			[ 'user_id' => $user_id, 'page_id' => $page_id, 'hits' => $hits + 1, 'last' => $last ],
-			__METHOD__
+		$user_id = $user->getID();
+		$page_id = $skin->getTitle()->getArticleID();
+		if ( !$user_id || !$page_id ) {
+			return;
+		}
+		$last = $dbw->timestamp( TS_UNIX );
+		$hits = $dbw->selectField( 'user_page_views', 'hits', "user_id = $user_id AND page_id = $page_id" );
+		if ( $hits ) {
+			$hits++;
+		}
+		$dbw->upsert( 'user_page_views',
+			[ 'user_id' => $user_id, 'page_id' => $page_id, 'hits' => 1, 'last' => $last ],
+			[ 'user_id', 'page_id' ],
+			[ 'hits' => $hits, 'last' => $last ]
 		);
-		return true;
 	}
 
-	public static function updateDatabase( DatabaseUpdater $updater ) {
+	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$updater->addExtensionTable( 'user_page_views', __DIR__ . '/../../sql/UserPageViewTracker.sql' );
 		// View user_page_hits is in UserPageViewTracker.sql and created together with user_page_views table
 	}
