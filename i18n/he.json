@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Yona b"
+			"Yona b",
+			"Amire80"
 		]
 	},
-	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|עוקב אחרי נתוני הצפייה לפי דף לפי משתמש]] ומציג זאת"
+	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|עוקב אחרי נתוני הצפייה לפי דף לפי משתמש]] ומציג זאת",
+	"userpageviewtracker": "עוקב צפיות בדפים על־ידי משתמשים"
 }
