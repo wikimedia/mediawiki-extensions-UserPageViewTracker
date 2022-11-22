@@ -26,7 +26,7 @@ class SpecialUserPageViewTracker extends SpecialPage {
 		}
 		$dbw->upsert( 'user_page_views',
 			[ 'user_id' => $user_id, 'page_id' => $page_id, 'hits' => 1, 'last' => $last ],
-			[ 'user_id', 'page_id' ],
+			[ [ 'user_id', 'page_id' ] ],
 			[ 'hits' => $hits, 'last' => $last ]
 		);
 	}
