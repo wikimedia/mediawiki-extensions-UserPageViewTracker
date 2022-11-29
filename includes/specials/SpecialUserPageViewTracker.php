@@ -33,7 +33,6 @@ class SpecialUserPageViewTracker extends SpecialPage {
 
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$updater->addExtensionTable( 'user_page_views', __DIR__ . '/../../sql/UserPageViewTracker.sql' );
-		// View user_page_hits is in UserPageViewTracker.sql and created together with user_page_views table
 	}
 
 	function execute( $parser = null ) {
