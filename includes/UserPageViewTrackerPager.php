@@ -40,17 +40,19 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 			$conds[] = $excludeUsers;
 		}
 		$conds[] = 'u.user_id=v.user_id AND p.page_id=v.page_id';
+		$prefix = $this->getConfig()->get( 'DBprefix' );
 		return [
-			'tables' => '(user u JOIN page p) JOIN user_page_views v',
-			'fields' => [ 'rownum' => '@rownum+1',
-			'user_name' => 'u.user_name',
-			'user_real_name' => 'u.user_real_name',
-			'page_namespace' => 'p.page_namespace',
-			'page_title' => 'p.page_title',
-			'hits' => 'v.hits',
-			'last' => 'v.last',
-			"concat(substr(last, 1, 4),'-',substr(last,5,2),'-',substr(last,7,2),' ',substr(last,9,2),':',substr(last,11,2),':',substr(last,13,2)) AS last" ],
-			'conds' => $conds
+			'tables' => '(' . $prefix . 'user u JOIN ' . $prefix . 'page p) JOIN ' . $prefix . 'user_page_views v',
+			'fields' => [
+				'rownum' => '@rownum+1',
+				'user_name' => 'u.user_name',
+				'user_real_name' => 'u.user_real_name',
+				'page_namespace' => 'p.page_namespace',
+				'page_title' => 'p.page_title',
+				'hits' => 'v.hits',
+				'last' => 'v.last',
+				"concat(substr(last, 1, 4),'-',substr(last,5,2),'-',substr(last,7,2),' ',substr(last,9,2),':',substr(last,11,2),':',substr(last,13,2)) AS last"
+			], 'conds' => $conds
 		];
 	}
 
