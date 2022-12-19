@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class UserPageViewTrackerPager extends AlphabeticPager {
 
 	/** @var int */
@@ -80,7 +82,12 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 		if ( !$this->mQueryDone ) {
 			$this->doQuery();
 		}
-		$batch = new LinkBatch;
+		if ( method_exists( MediaWikiServices::class, 'getLinkBatchFactory' ) ) {
+			// MW 1.35+
+			$batch = MediaWikiServices::getInstance()->getLinkBatchFactory()->newLinkBatch();
+		} else {
+			$batch = new LinkBatch;
+		}
 		$db = $this->mDb;
 		$this->mResult->rewind();
 		$this->rowCount = 0;
