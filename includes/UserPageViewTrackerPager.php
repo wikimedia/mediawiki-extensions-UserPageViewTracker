@@ -11,9 +11,9 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 		parent::__construct( $context );
 		global $wgRequest;
 		$this->filterUsers = $wgRequest->getVal( 'filterusers' );
-		$this->filterUserList = explode( "|", $this->filterUsers );
+		$this->filterUserList = $this->filterUsers !== null ? explode( "|", $this->filterUsers ) : [];
 		$this->ignoreUsers = $wgRequest->getVal( 'ignoreusers' );
-		$this->ignoreUserList = explode( "|", $this->ignoreUsers );
+		$this->ignoreUserList = $this->ignoreUsers !== null ? explode( "|", $this->ignoreUsers ) : [];
 	}
 
 	/**
