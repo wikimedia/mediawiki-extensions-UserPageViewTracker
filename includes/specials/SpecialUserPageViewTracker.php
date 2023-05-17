@@ -7,6 +7,10 @@ class SpecialUserPageViewTracker extends SpecialPage {
 	}
 
 	public static function onBeforePageDisplay( OutputPage $out, Skin $skin ) {
+		global $wgReadOnly;
+		if ( $wgReadOnly ) {
+			return;
+		}
 		$dbw = wfGetDB( DB_MASTER );
 		if ( method_exists( $skin, 'getUserIdentity' ) ) {
 			// MW 1.36+
