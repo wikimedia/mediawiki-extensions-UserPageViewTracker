@@ -26,14 +26,13 @@ class SpecialUserPageViewTracker extends SpecialPage {
 		}
 		$dbw->upsert( 'user_page_views',
 			[ 'user_id' => $user_id, 'page_id' => $page_id, 'hits' => 1, 'last' => $last ],
-			[ 'user_id', 'page_id' ],
+			[ [ 'user_id', 'page_id' ] ],
 			[ 'hits' => $hits, 'last' => $last ]
 		);
 	}
 
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$updater->addExtensionTable( 'user_page_views', __DIR__ . '/../../sql/UserPageViewTracker.sql' );
-		// View user_page_hits is in UserPageViewTracker.sql and created together with user_page_views table
 	}
 
 	function execute( $parser = null ) {

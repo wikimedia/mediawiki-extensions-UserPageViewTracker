@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class UserPageViewTrackerPager extends AlphabeticPager {
 
 	/** @var int */
@@ -9,9 +11,9 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 		parent::__construct( $context );
 		global $wgRequest;
 		$this->filterUsers = $wgRequest->getVal( 'filterusers' );
-		$this->filterUserList = explode( "|", $this->filterUsers );
+		$this->filterUserList = $this->filterUsers !== null ? explode( "|", $this->filterUsers ) : [];
 		$this->ignoreUsers = $wgRequest->getVal( 'ignoreusers' );
-		$this->ignoreUserList = explode( "|", $this->ignoreUsers );
+		$this->ignoreUserList = $this->ignoreUsers !== null ? explode( "|", $this->ignoreUsers ) : [];
 	}
 
 	/**
@@ -23,8 +25,11 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 		return "rownum";
 	}
 
+	function getExtraSortFields() {
+		return [ 'u.user_id', 'hits DESC' ];
+	}
+
 	function getQueryInfo() {
-		$userpagehits = wfGetDB( DB_REPLICA )->tableName( 'user_page_hits' );
 		$conds = [];
 		if ( $this->filterUsers ) {
 			$includeUsers = "user_name in ( '";
@@ -36,20 +41,20 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 			$excludeUsers .= implode( "', '", $this->ignoreUserList ) . "')";
 			$conds[] = $excludeUsers;
 		}
-		$table = "(select @rownum:=@rownum+1 as rownum,";
-		$table .= "user_name, page_namespace, page_title,hits, last ";
-		$table .= "from (select @rownum:=0) r, ";
-		$table .= "(select user_name, page_namespace, page_title,hits,";
-		$table .= "last from " . $userpagehits . ") p) results";
+		$conds[] = 'u.user_id=v.user_id AND p.page_id=v.page_id';
+		$prefix = $this->getConfig()->get( 'DBprefix' );
 		return [
-			'tables' => " $table ",
-			'fields' => [ 'rownum',
-			'user_name',
-			'page_namespace',
-			'page_title',
-			'hits',
-			"concat(substr(last, 1, 4),'-',substr(last,5,2),'-',substr(last,7,2),' ',substr(last,9,2),':',substr(last,11,2),':',substr(last,13,2)) AS last" ],
-			'conds' => $conds
+			'tables' => '(' . $prefix . 'user u JOIN ' . $prefix . 'page p) JOIN ' . $prefix . 'user_page_views v',
+			'fields' => [
+				'rownum' => '@rownum+1',
+				'user_name' => 'u.user_name',
+				'user_real_name' => 'u.user_real_name',
+				'page_namespace' => 'p.page_namespace',
+				'page_title' => 'p.page_title',
+				'hits' => 'v.hits',
+				'last' => 'v.last',
+				"concat(substr(last, 1, 4),'-',substr(last,5,2),'-',substr(last,7,2),' ',substr(last,9,2),':',substr(last,11,2),':',substr(last,13,2)) AS last"
+			], 'conds' => $conds
 		];
 	}
 
@@ -77,7 +82,12 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 		if ( !$this->mQueryDone ) {
 			$this->doQuery();
 		}
-		$batch = new LinkBatch;
+		if ( method_exists( MediaWikiServices::class, 'getLinkBatchFactory' ) ) {
+			// MW 1.35+
+			$batch = MediaWikiServices::getInstance()->getLinkBatchFactory()->newLinkBatch();
+		} else {
+			$batch = new LinkBatch;
+		}
 		$db = $this->mDb;
 		$this->mResult->rewind();
 		$this->rowCount = 0;
