@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"McDutchie",
 			"Siebrand"
 		]
 	},
-	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|Volgt de paginaweergaves per pagina per gebruiker]] en geeft deze weer"
+	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|Volgt de paginaweergaves per pagina per gebruiker]] en geeft deze weer",
+	"userpageviewtracker": "Volgsysteem weergaven gebruikerspagina"
 }
