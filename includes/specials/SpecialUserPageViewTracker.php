@@ -48,9 +48,9 @@ class SpecialUserPageViewTracker extends SpecialPage {
 
 		if ( method_exists( $request, 'getLimitOffsetForUser' ) ) {
 			// MW 1.35+
-			list( $limit, $offset ) = $request->getLimitOffsetForUser( $user );
+			[ $limit, $offset ] = $request->getLimitOffsetForUser( $user );
 		} else {
-			list( $limit, $offset ) = $request->getLimitOffset();
+			[ $limit, $offset ] = $request->getLimitOffset();
 		}
 
 		$userTarget = isset( $parser ) ? $parser : $request->getVal( 'username' );
