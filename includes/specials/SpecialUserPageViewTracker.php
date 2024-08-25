@@ -11,7 +11,7 @@ class SpecialUserPageViewTracker extends SpecialPage {
 		if ( $wgReadOnly ) {
 			return;
 		}
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		if ( method_exists( $skin, 'getUserIdentity' ) ) {
 			// MW 1.36+
 			$user = $skin->getUserIdentity();
