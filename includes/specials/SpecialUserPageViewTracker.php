@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class SpecialUserPageViewTracker extends SpecialPage {
 
 	function __construct() {
@@ -11,7 +13,7 @@ class SpecialUserPageViewTracker extends SpecialPage {
 		if ( $wgReadOnly ) {
 			return;
 		}
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		if ( method_exists( $skin, 'getUserIdentity' ) ) {
 			// MW 1.36+
 			$user = $skin->getUserIdentity();
