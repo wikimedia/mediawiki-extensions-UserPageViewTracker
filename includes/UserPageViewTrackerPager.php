@@ -44,7 +44,7 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 		$conds[] = 'u.user_id=v.user_id AND p.page_id=v.page_id';
 		$prefix = $this->getConfig()->get( 'DBprefix' );
 		return [
-			'tables' => '(' . $prefix . 'user u JOIN ' . $prefix . 'page p) JOIN ' . $prefix . 'user_page_views v',
+			'tables' => ['u' => 'user', 'p' => 'page', 'v' => 'user_page_views'], 
 			'fields' => [
 				'rownum' => '@rownum+1',
 				'user_name' => 'u.user_name',
