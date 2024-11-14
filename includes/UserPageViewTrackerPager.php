@@ -4,6 +4,15 @@ use MediaWiki\MediaWikiServices;
 
 class UserPageViewTrackerPager extends AlphabeticPager {
 
+	/** @var string|null */
+	private $filterUsers;
+	/** @var string[] */
+	private $filterUserList;
+	/** @var string|null */
+	private $ignoreUsers;
+	/** @var string[] */
+	private $ignoreUserList;
+
 	/** @var int */
 	protected $rowCount = 0;
 
