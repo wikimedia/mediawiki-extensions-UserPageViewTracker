@@ -9,17 +9,15 @@ class SpecialUserPageViewTracker extends SpecialPage {
 	}
 
 	public static function onBeforePageDisplay( OutputPage $out, Skin $skin ) {
-		global $wgReadOnly;
-		if ( $wgReadOnly ) {
+		$config = $out->getConfig();
+		$readOnly = $config->get( 'ReadOnly' );
+		if ( $readOnly ) {
 			return;
 		}
-		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
-		if ( method_exists( $skin, 'getUserIdentity' ) ) {
-			// MW 1.36+
-			$user = $skin->getUserIdentity();
-		} else {
-			$user = $skin->getUser();
-		}
+		$services = MediaWikiServices::getInstance();
+		$provider = $services->getConnectionProvider();
+		$dbw = $provider->getPrimaryDatabase();
+		$user = $skin->getUser();
 		$user_id = $user->getID();
 		$page_id = $skin->getTitle()->getArticleID();
 		if ( !$user_id || !$page_id ) {
@@ -48,12 +46,7 @@ class SpecialUserPageViewTracker extends SpecialPage {
 
 		$out->setPageTitle( 'User page view tracker' );
 
-		if ( method_exists( $request, 'getLimitOffsetForUser' ) ) {
-			// MW 1.35+
-			[ $limit, $offset ] = $request->getLimitOffsetForUser( $user );
-		} else {
-			[ $limit, $offset ] = $request->getLimitOffset();
-		}
+		[ $limit, $offset ] = $request->getLimitOffsetForUser( $user );
 
 		$userTarget = isset( $parser ) ? $parser : $request->getVal( 'username' );
 
