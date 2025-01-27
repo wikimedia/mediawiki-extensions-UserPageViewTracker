@@ -18,11 +18,11 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 
 	function __construct( IContextSource $context, $username = null ) {
 		parent::__construct( $context );
-		global $wgRequest;
-		$this->filterUsers = $wgRequest->getVal( 'filterusers' );
-		$this->filterUserList = $this->filterUsers !== null ? explode( "|", $this->filterUsers ) : [];
-		$this->ignoreUsers = $wgRequest->getVal( 'ignoreusers' );
-		$this->ignoreUserList = $this->ignoreUsers !== null ? explode( "|", $this->ignoreUsers ) : [];
+		$request = $context->getRequest();
+		$this->filterUsers = $request->getVal( 'filterusers' );
+		$this->filterUserList = $this->filterUsers !== null ? explode( '|', $this->filterUsers ) : [];
+		$this->ignoreUsers = $request->getVal( 'ignoreusers' );
+		$this->ignoreUserList = $this->ignoreUsers !== null ? explode( '|', $this->ignoreUsers ) : [];
 	}
 
 	/**
@@ -31,7 +31,7 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 	 * @return string
 	 */
 	function getIndexField() {
-		return "rownum";
+		return 'rownum';
 	}
 
 	function getExtraSortFields() {
@@ -53,7 +53,11 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 		$conds[] = 'u.user_id=v.user_id AND p.page_id=v.page_id';
 		$prefix = $this->getConfig()->get( 'DBprefix' );
 		return [
-			'tables' => '(' . $prefix . 'user u JOIN ' . $prefix . 'page p) JOIN ' . $prefix . 'user_page_views v',
+			'tables' => [
+				'u' => 'user',
+				'p' => 'page',
+				'v' => 'user_page_views'
+			],
 			'fields' => [
 				'rownum' => '@rownum+1',
 				'user_name' => 'u.user_name',
@@ -91,20 +95,18 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 		if ( !$this->mQueryDone ) {
 			$this->doQuery();
 		}
-		if ( method_exists( MediaWikiServices::class, 'getLinkBatchFactory' ) ) {
-			// MW 1.35+
-			$batch = MediaWikiServices::getInstance()->getLinkBatchFactory()->newLinkBatch();
-		} else {
-			$batch = new LinkBatch;
-		}
-		$db = $this->mDb;
-		$this->mResult->rewind();
+		$services = MediaWikiServices::getInstance();
+		$linkBatchFactory = $services->getLinkBatchFactory();
+		$linkBatch = $linkBatchFactory->newLinkBatch();
+		$result = $this->mResult;
+		$result->rewind();
 		$this->rowCount = 0;
-		while ( $row = $this->mResult->fetchObject() ) {
-			$batch->addObj( Title::makeTitleSafe( NS_USER, $row->user_name ) );
+		while ( $row = $result->fetchObject() ) {
+			$title = Title::makeTitleSafe( NS_USER, $row->user_name );
+			$linkBatch->addObj( $title );
 		}
-		$batch->execute();
-		$this->mResult->rewind();
+		$linkBatch->execute();
+		$result->rewind();
 		return parent::getBody();
 	}
 
@@ -125,9 +127,9 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 				'buttondefault' => 'Exclude',
 			]
 		];
-
-		$context = new DerivativeContext( $this->getContext() );
-		$htmlForm = HTMLForm::factory( 'ooui', $formDescriptor, $context );
+		$context = $this->getContext();
+		$derivativeContext = new DerivativeContext( $context );
+		$htmlForm = HTMLForm::factory( 'ooui', $formDescriptor, $derivativeContext );
 		$htmlForm
 			->setId( 'filteruser' )
 			->setName( 'filteruser' )
