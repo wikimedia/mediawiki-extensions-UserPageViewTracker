@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\Linker\Linker;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 
@@ -75,21 +74,23 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 
 	function formatRow( $row ) {
 		$userPage = Title::makeTitle( NS_USER, $row->user_name );
-		$name = Linker::link( $userPage, htmlspecialchars( $userPage->getText() ) );
+		$services = MediaWikiServices::getInstance();
+		$linkRenderer = $services->getLinkRenderer();
+		$name = $linkRenderer->makeLink( $userPage, htmlspecialchars( $userPage->getText() ) );
 		$pageTitle = Title::makeTitle( $row->page_namespace, $row->page_title );
 		if ( $row->page_namespace > 0 ) {
 			$pageFullName = $pageTitle->getNsText() . ':' . htmlspecialchars( $pageTitle->getText() );
 		} else {
 			$pageFullName = htmlspecialchars( $pageTitle->getText() );
 		}
-		$page = Linker::link( $pageTitle, $pageFullName );
+		$page = $linkRenderer->makeLink( $pageTitle, $pageFullName );
 
 		$res = '<tr>';
-		$res .= '<td>' . $name . '</td><td>';
-		$res .= "$page</td>";
-		$res .= '<td style="text-align:right">' . $row->hits . '</td>';
-		$res .= '<td style="text-align:center">' . $row->last . '</td>';
-		$res .= "</tr>\n";
+		$res .= '<td>' . $name . '</td>';
+		$res .= '<td>' . $page . '</td>';
+		$res .= '<td style="text-align: right;">' . $row->hits . '</td>';
+		$res .= '<td style="text-align: center;">' . $row->last . '</td>';
+		$res .= '</tr>';
 		return $res;
 	}
 
