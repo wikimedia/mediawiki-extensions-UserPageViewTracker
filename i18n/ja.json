@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shirayuki"
+			"Shirayuki",
+			"Tensama0415"
 		]
 	},
-	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|ページごと・利用者ごとのページ ビューを追跡]]し、それを表示する"
+	"userpageviewtracker-desc": "[[Special:UserPageViewTracker|ページごと・利用者ごとのページ ビューを追跡]]し、それを表示する",
+	"userpageviewtracker": "利用者ページビュー追跡ツール"
 }
