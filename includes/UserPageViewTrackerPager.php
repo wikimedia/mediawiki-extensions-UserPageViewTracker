@@ -42,13 +42,13 @@ class UserPageViewTrackerPager extends AlphabeticPager {
 	function getQueryInfo() {
 		$conds = [];
 		if ( $this->filterUsers ) {
-			$includeUsers = "user_name in ( '";
-			$includeUsers .= implode( "', '", $this->filterUserList ) . "')";
+			$includeUsers = 'user_name in ( ';
+			$includeUsers .= $this->getDatabase()->makeList( $this->filterUserList ) . ')';
 			$conds[] = $includeUsers;
 		}
 		if ( $this->ignoreUsers ) {
-			$excludeUsers = "user_name not in ( '";
-			$excludeUsers .= implode( "', '", $this->ignoreUserList ) . "')";
+			$excludeUsers = 'user_name not in ( ';
+			$excludeUsers .= $this->getDatabase()->makeList( $this->ignoreUserList ) . ')';
 			$conds[] = $excludeUsers;
 		}
 		$conds[] = 'u.user_id=v.user_id AND p.page_id=v.page_id';
